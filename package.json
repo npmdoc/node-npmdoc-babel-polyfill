@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"babel-polyfill",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "babel-polyfill",
+    "description": "api documentation for [babel-polyfill (v6.23.0)](https://babeljs.io/) [![npm package](https://img.shields.io/npm/v/npmdoc-babel-polyfill.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-babel-polyfill) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-babel-polyfill.svg)](https://travis-ci.org/npmdoc/node-npmdoc-babel-polyfill)",
     "devDependencies": {
         "babel-polyfill": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-babel-polyfill",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-babel-polyfill",
+    "keywords": [
+        "documentation",
+        "babel-polyfill"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_babel_polyfill.js",
+    "name": "npmdoc-babel-polyfill",
+    "nameAlias": "npmdoc_babel_polyfill",
+    "nameOriginal": "npmdoc-babel-polyfill",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-babel-polyfill.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
